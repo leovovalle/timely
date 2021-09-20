@@ -1,0 +1,26 @@
+a<div class="table-responsive">
+	<table class="table">
+		<thead class="thead-dark bg-dark">
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col" id="title">Title</th>
+				<th scope="col" id="start_date">Start Date</th>
+				<th scope="col" id="description">Description</th>
+				<th scope="col" id="image">Image</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let event of eventsList; let i=index">
+				<td scope="row">{{ i + 1 }}</td>
+				<td>{{ event.title }}</td>
+				<td>{{ event.start_datetime }}</td>
+				<td>{{ event.description_short }}</td>
+				<td>
+					<div *ngIf="event.images" class="image"
+						[ngStyle]="{ 'backgroundImage':'url(' + event.images[0].sizes.small.url + ')' }">
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
